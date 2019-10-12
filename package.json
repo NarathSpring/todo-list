@@ -1,0 +1,9 @@
+{
+  "name": "Todo",
+  "version": "1.0.0",
+  "main": "todo.js",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^3.0.2"
+  }
+}
