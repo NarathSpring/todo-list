@@ -24,4 +24,11 @@ program
     api.remove(words);
   });
 
+program
+  .command("show")
+  .description("show the task list")
+  .action((...args) => {
+    api.show(1);
+  });
+
 program.parse(process.argv);

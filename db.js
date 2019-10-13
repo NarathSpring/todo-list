@@ -26,6 +26,21 @@ const db = {
         resolve();
       });
     });
+  },
+
+  remove(title) {
+    // return new Promise((resolve, reject) => {
+    //   fs.readFile(listPath, (error, content) => {
+    //     if (error) return reject(error);
+    //     let list;
+    //     try {
+    //       list = JSON.parse(content.toString());
+    //     } catch (catchError) {
+    //       list = [];
+    //     }
+    //     resolve(list);
+    //   });
+    // });
   }
 };
 
