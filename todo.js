@@ -1,12 +1,5 @@
 const program = require("commander");
-const version = require("./package.json").version;
-const api = require("./api.js");
-
-function showVersion() {
-  console.log(version);
-}
-
-program.option("-v, --version", "show the version", showVersion);
+const api = require("./src/api.js");
 
 program
   .command("add")
@@ -16,19 +9,8 @@ program
     api.add(words);
   });
 
-program
-  .command("remove")
-  .description("remove a task")
-  .action((...args) => {
-    const words = args.slice(0, -1).join(" ");
-    api.remove(words);
-  });
-
-program
-  .command("show")
-  .description("show the task list")
-  .action((...args) => {
-    api.show(1);
-  });
+if (process.argv.length === 2) {
+  api.init();
+}
 
 program.parse(process.argv);

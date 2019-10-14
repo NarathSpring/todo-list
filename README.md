@@ -14,3 +14,17 @@
 # 新的技能
 
 - 使用 yarn
+
+node todo
+进入程序 -> 列出所有任务
+
+node todo add
+添加任务
+
+node todo remove
+删除任务
+
+node todo edit
+编辑任务
+
+node todo
