@@ -1,12 +1,14 @@
 const program = require("commander");
 const api = require("./src/api.js");
+const version = require("./package.json").version;
+
+program.option("-v, --version", "show the version").version(version);
 
 program
-  .command("add")
-  .description("add a task")
+  .command("clear")
+  .description("clear all the task")
   .action((...args) => {
-    const words = args.slice(0, -1).join(" ");
-    api.add(words);
+    api.clear();
   });
 
 if (process.argv.length === 2) {

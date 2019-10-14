@@ -1,30 +1,21 @@
-## 列出所有的 todo
+# 命令
 
-## 新增 todo
+- node todo - 进入程序
 
-- 定义 task 的结构`{title: title, done: false}`
--
+- node todo clear - 清除所有任务
 
-## 编辑 todo
+# bug
 
-## 删除 todo
+- _创建新任务_ 和 _更新标题_ 之后，showAllTasks 函数会进入 if 语句内(list.length === 0)，但是实际上文件里已经写入了内容（应该已解决）
 
-## 更改 todo 的状态
+```javascript
+// 原来的代码
+db.write(list);
+this.showAllTasks();
 
-# 新的技能
+// 更改后
+await db.write(list);
+this.showAllTasks();
+```
 
-- 使用 yarn
-
-node todo
-进入程序 -> 列出所有任务
-
-node todo add
-添加任务
-
-node todo remove
-删除任务
-
-node todo edit
-编辑任务
-
-node todo
+函数调用顺序是正确的，但是可能异步写入的时候，实际写入在`showAllTasks`之后，在`db.write`之前加上`await`，以保证写入完成之后再进入下面的`showAllTasks`

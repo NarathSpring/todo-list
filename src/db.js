@@ -23,7 +23,7 @@ const db = {
       const string = JSON.stringify(list);
       fs.writeFile(listPath, string, error => {
         if (error) return reject(error);
-        console.log("添加成功");
+        // console.log("添加成功");
         resolve();
       });
     });
